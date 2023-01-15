@@ -1,5 +1,5 @@
 # personal-project-2
-A small personal project in C++.
+A personal project in C++.
 
-Objective: create a basic queuing system
+Objective: Create a program that finds the shortest number of connections between people (like "Erdos number", "Six Degrees of Kevin Bacon")
 TODO: review how to create classes in C++
