@@ -5,7 +5,6 @@
 #include <string>
 #include <map>
 
-#include "connection.h"
 #include "connectionlist.h"
 
 /* A network of different people

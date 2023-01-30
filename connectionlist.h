@@ -3,11 +3,19 @@
 
 #include <string>
 
-#include "connection.h"
+// represents a connection between two different people
+struct Connection
+{
+    std::string person1;
+    std::string person2;
+    // std:: string desc;
+};
+
 
 struct Node
 {
    std::string name;
+   Connection* connection; // pointer to connection in network's connections map
 };
 
 // a list of a person's connections
