@@ -3,34 +3,41 @@
 
 #include <string>
 
-// represents a connection between two different people
+using std::string;
+
+// represents a connection between two different people 
 struct Connection
 {
-    std::string person1;
-    std::string person2;
+    string person1;
+    string person2;
     // std:: string desc;
 };
 
 
 struct Node
 {
-   std::string name;
+   string name;
    Connection* connection; // pointer to connection in network's connections map
+   Node* prev;
+   Node* next;
 };
 
 // a list of a person's connections
 class ConnectionList
 {
     public:
-    // constructor
+    // creates an empty connection list
     ConnectionList();
 
-    // returns true if connection between given people is in the list
-    bool find(std::string person1, std::string person2);
+    // destructor
+    ~ConnectionList();
 
     // adds given connection to the list
     // returns false if connection is already in the list
-    bool add(Connection connection);
+    bool add(Connection* connection);
+
+    // returns true if there is a connection between these two people
+    bool has_connection(string person1, string person2);
 
     // creates connection and adds it to the list
     // returns false if equivalent connection is already in the list
@@ -38,7 +45,18 @@ class ConnectionList
 
     // removes connection between person1 and person2 from the list
     // returns false if no such connection
-    bool remove(std::string person1, std::string person2);
+    bool remove(string person1, string person2);
+
+    private:
+    // head of the list
+    Node* head;
+
+    // returns node with given people if one exists in the list
+    Node* find(string person1, string person2);
+
+    // helper for destructor
+    // removes the head of the list
+    void remove_head();
 };
 
 #endif
