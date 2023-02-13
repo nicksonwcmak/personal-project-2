@@ -3,16 +3,9 @@
 
 #include <string>
 
+#include "connection.h"
+
 using std::string;
-
-// represents a connection between two different people 
-struct Connection
-{
-    string person1;
-    string person2;
-    // std:: string desc;
-};
-
 
 struct Node
 {

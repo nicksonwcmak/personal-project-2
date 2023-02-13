@@ -4,7 +4,7 @@ ConnectionList::ConnectionList() {
     head = nullptr;
 };
 
-// delete the Connection???
+// delete the Connection
 ConnectionList::~ConnectionList() {
     Node* curr = head;
     while(curr != nullptr) {
