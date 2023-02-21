@@ -1,13 +1,16 @@
 #include "connectionlist.h"
+#include "connection.h"
 
 ConnectionList::ConnectionList() {
     head = nullptr;
 };
 
-// delete the Connection
+// delete the connection list
 ConnectionList::~ConnectionList() {
     Node* curr = head;
     while(curr != nullptr) {
+        Connection* connect = curr->connection;
+        delete connect;
         Node* next = curr->next;
         delete curr;
         curr = next;

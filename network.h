@@ -4,9 +4,10 @@
 #include <cstdlib>
 #include <string>
 #include <map>
+#include <vector>
 
+#include "connection.h"
 #include "connectionlist.h"
-//#include "connection.h"
 
 class Connection;
 
@@ -48,7 +49,7 @@ class Network
     std::map<std::string, ConnectionList> incident_edges;
 
     //vector of edges
-    //std::vector<Connection> v; // triggers error "incomplete type is not allowed"
+    std::vector<Connection*> edges;
 };
 
 #endif

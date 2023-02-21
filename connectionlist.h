@@ -46,10 +46,6 @@ class ConnectionList
 
     // returns node with given people if one exists in the list
     Node* find(string person1, string person2);
-
-    // helper for destructor
-    // removes the head of the list
-    void remove_head();
 };
 
 #endif
