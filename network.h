@@ -19,7 +19,7 @@ class Network
     
     Network();
      
-    ~Network();
+    // ~Network();
 
     // adds a person with name name to the network, returns true if successful
     bool add_person(std::string name);
@@ -31,7 +31,7 @@ class Network
     bool find(std::string name);
 
     // get connections of a person in the list if one exists
-    ConnectionList get_connections_of(string name);
+    ConnectionList* get_connections_of(string name);
 
     // removes person if they exist
     bool remove_person(std::string name);
@@ -46,7 +46,7 @@ class Network
 
     private:
     //dict mapping nodes (people) to list of incident edges (their connections)
-    std::map<std::string, ConnectionList> incident_edges;
+    std::map<std::string, ConnectionList*> incident_edges;
 
     //vector of edges
     std::vector<Connection*> edges;

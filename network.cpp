@@ -6,6 +6,20 @@
 #include <string>
 #include <map>
 
-Network::Network() = default; // stub
+using namespace std;
 
-Network::~Network() = default; //stub
+/* creates an empty network
+Network::Network() = default;
+
+Network::~Network() {
+
+}*/
+
+bool Network::add_person(string name) {
+    incident_edges[name] = new ConnectionList();
+    return true;
+};
+
+bool Network::add_connection(string person1, string person2) {
+    
+}

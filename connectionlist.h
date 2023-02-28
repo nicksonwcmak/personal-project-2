@@ -25,9 +25,8 @@ class ConnectionList
     // destructor
     ~ConnectionList();
 
-    // adds given connection to the list
-    // returns false if connection is already in the list
-    bool add(Connection* connection);
+    // adds given connection to the list and returns the node added
+    Node* add(Connection* connection);
 
     // returns true if there is a connection between these two people
     bool has_connection(string person1, string person2);
