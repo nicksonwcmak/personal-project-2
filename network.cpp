@@ -16,7 +16,7 @@ Network::~Network() {
 }*/
 
 bool Network::add_person(string name) {
-    incident_edges[name] = new ConnectionList();
+    incident_edges[name] = new ConnectionList(name);
     return true;
 };
 
@@ -33,23 +33,49 @@ bool Network::add_connection(string person1, string person2) {
 };
 
 bool Network::find(std::string name) {
-    // stub: use map iterator
-    return false;
+    auto lookup = incident_edges.find(name);
+    return lookup != incident_edges.end();
 };
 
 ConnectionList* Network::get_connections_of(string name) {
-    return incident_edges[name];
-    // creates a new key if this is not found: try "at" + exception handling?
+    auto lookup = incident_edges.find(name);
+    if (lookup != incident_edges.end()) {
+        return lookup->second; // the connection list
+    } else {
+        return nullptr; // nothing found
+    }
+    // try "at" + exception handling?
 };
 
 bool Network::remove_person(std::string name) {
-    return false; //stub
+    for (auto it = incident_edges.begin(); it != incident_edges.end();)
+    {
+        if (it->first == name) {
+            ConnectionList* connect = it->second;
+            delete connect; // calls ConnectionList destructor
+            it->second = nullptr;
+            it = incident_edges.erase(it);// will this memory leak??
+            return true; 
+        } else
+            ++it;
+    } // using C++ 11, can't use map::extract
+    return false; // couldn't find person to delete
 };
 
 bool Network::remove_connection(std::string person1, std::string person2) {
-    return false; //stub
-}
+    for (auto it  = edges.begin(); it != edges.end();){
+        Connection* conn = *it;
+        if (conn->person1 == person1 && conn->person2 == person2) {
+            edges.erase(it);
+            return true;
+        } else if (conn->person1 == person2 && conn->person2 == person1) {
+            edges.erase(it);
+            return true;
+        }
+    }
+    return false;
+};
 
 int Network::distance(std::string person1, std::string person2) {
-    return -1; //stub
-}
+    return -1; // use breadth first search
+};

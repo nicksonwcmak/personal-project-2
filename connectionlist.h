@@ -19,8 +19,8 @@ struct Node
 class ConnectionList
 {
     public:
-    // creates an empty connection list
-    ConnectionList();
+    // creates a connection list for this person
+    ConnectionList(string per);
 
     // destructor
     ~ConnectionList();
@@ -42,6 +42,9 @@ class ConnectionList
     private:
     // head of the list
     Node* head;
+
+    //person whose connections this list is of
+    string person;
 
     // returns node with given people if one exists in the list
     Node* find(string person1, string person2);

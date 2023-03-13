@@ -1,7 +1,8 @@
 #include "connectionlist.h"
 #include "connection.h"
 
-ConnectionList::ConnectionList() {
+ConnectionList::ConnectionList(string per) {
+    person = per;
     head = nullptr;
 };
 
@@ -10,7 +11,12 @@ ConnectionList::~ConnectionList() {
     Node* curr = head;
     while(curr != nullptr) {
         Connection* connect = curr->connection;
-        delete connect;
+        if (connect->connect1 == curr) {
+            connect->connect1 = nullptr; //prevent looping
+        } else if (connect->connect2 == curr) {
+            connect->connect2 = nullptr;
+        } // throw error if none?
+        delete connect; // calls Connection destructor
         Node* next = curr->next;
         delete curr;
         curr = next;
@@ -35,16 +41,17 @@ Node* ConnectionList::find(std::string person1, std::string person2) {
 };
 
 // adds given connection to the list
-// returns false if connection is already in the list
-bool ConnectionList::add(Connection* connection){
-    if (has_connection(connection->person1,connection->person2)) return false;
+// returns pointer to existing node if one exists
+Node* ConnectionList::add(Connection* connection){
+    Node* check = find(connection->person1,connection->person2);
+    if (check) return check;
 
     Node* node = new Node();
     node->connection = connection;
     node->prev = nullptr;
     node->next = head;
     head = node; // adds new node at head of list
-    return true;
+    return node;
 };
 
 // returns true if connection between these two people is in the list

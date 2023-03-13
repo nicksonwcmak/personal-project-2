@@ -14,10 +14,11 @@ class Network;
 class Connection
 {
 private:
-    Node* connect1; // pointer to this connection in person 1's connection list
-    Node* connect2; // pointer to this connection in person 2's connection list
     Network* network; //network this connection is in
 public:
+    // should nodes be public or private?
+    Node* connect1; // pointer to this connection in person 1's connection list
+    Node* connect2; // pointer to this connection in person 2's connection list
     string person1; // first person
     string person2; // second person
     Connection(string person1, string person2);
