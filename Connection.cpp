@@ -1,15 +1,20 @@
 #include "Connection.h"
 #include "connectionlist.h"
 
-Connection::Connection(string p1, string p2)
+Connection::Connection(string p1, string p2, Network* net)
 {
     person1 = p1;
     person2 = p2;
     // set up nodes in associated connection lists
-    ConnectionList* c1 = network->get_connections_of(p1);
-    connect1 = c1->add(this);
-    ConnectionList* c2 = network->get_connections_of(p2);
-    connect2 = c2->add(this);
+    if (net != nullptr) {
+        network = net;
+        ConnectionList* c1 = network->get_connections_of(p1);
+        connect1 = c1->add(this);
+        ConnectionList* c2 = network->get_connections_of(p2);
+        connect2 = c2->add(this);
+    } else {
+        network = nullptr;
+    }
 };
 
 Connection::~Connection() 
