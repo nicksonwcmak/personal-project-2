@@ -31,7 +31,7 @@ class Network
     bool find(std::string name);
 
     // get connections of a person in the list if one exists
-    ConnectionList* get_connections_of(string name);
+    ConnectionList* get_connections_of(std::string name);
 
     // removes person if they exist
     bool remove_person(std::string name);

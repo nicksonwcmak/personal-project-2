@@ -8,7 +8,7 @@
 
 using std::string;
 
-class Network;
+struct Node;
 
 // represents a connection between two different people 
 struct Connection

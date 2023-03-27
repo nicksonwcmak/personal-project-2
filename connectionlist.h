@@ -7,6 +7,8 @@
 
 using std::string;
 
+struct Connection;
+
 struct Node
 {
    string name;
@@ -38,6 +40,8 @@ class ConnectionList
     // removes connection between person1 and person2 from the list
     // returns false if no such connection
     bool remove(string person1, string person2);
+
+    string get_person();
 
     private:
     // head of the list

@@ -6,6 +6,10 @@ ConnectionList::ConnectionList(string per) {
     head = nullptr;
 };
 
+string ConnectionList::get_person() {
+    return person;
+}
+
 // delete the connection list
 ConnectionList::~ConnectionList() {
     Node* curr = head;

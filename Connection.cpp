@@ -1,4 +1,4 @@
-#include "Connection.h"
+#include "connection.h"
 #include "connectionlist.h"
 
 Connection::Connection(string p1, string p2, Network* net)
