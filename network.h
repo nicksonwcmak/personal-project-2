@@ -10,6 +10,7 @@
 #include "connectionlist.h"
 
 class Connection;
+class ConnectionList;
 
 /* A network of different people
    (implement as adjacency list)*/
