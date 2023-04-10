@@ -11,4 +11,4 @@ void test_constructor() {
     std::cout << "Person 1: " << connect.person1 << "; Person 2: " << connect.person2 << std::endl;
 };
 
-// to compile: 
+// to compile: g++ -g connection.cpp connectionlist.cpp main.cpp network.cpp testconnection.cpp -o testconnection.cpp
