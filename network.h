@@ -6,11 +6,12 @@
 #include <map>
 #include <vector>
 
+class Connection;
+class ConnectionList;
+
 #include "connection.h"
 #include "connectionlist.h"
 
-class Connection;
-class ConnectionList;
 
 /* A network of different people
    (implement as adjacency list)*/

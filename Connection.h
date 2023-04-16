@@ -3,6 +3,8 @@
 
 #include <string>
 
+class Network;
+
 #include "connectionlist.h"
 #include "network.h"
 
